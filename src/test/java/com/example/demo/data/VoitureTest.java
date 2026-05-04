@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class VoitureTest {
-    @BeaforeEach
+    @BeforeEach
     void init(){
         Voiture v = new Voiture("volvo",1342);
     }
