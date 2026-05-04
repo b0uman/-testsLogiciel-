@@ -16,6 +16,7 @@ public class VoitureTest {
 
     @Test
     void creerVoiture(){
+        Voiture v = new Voiture();
         v.setId(1);
         assertEquals(1,v.getId());
         assertEquals(1342,v.getPrix());
