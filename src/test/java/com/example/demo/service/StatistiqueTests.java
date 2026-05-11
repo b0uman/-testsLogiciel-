@@ -14,4 +14,37 @@ public class StatistiqueTests {
     @MockBean
     StatistiqueImpl statistiqueImpl;
 
+    @BeforeEach
+    void setUp() {
+        statistiqueImpl = new StatistiqueImpl();
+    }
+
+    @Test
+    void ajouter_ShouldIncreaseListSize() {
+        Voiture v1 = new Voiture(15000);
+        statistiqueImpl.ajouter(v1);
+        Echantillon result = statistiqueImpl.prixMoyen();
+        assertThat(result.getNombreDeVoitures()).isEqualTo(1);
+    }
+
+    @Test
+    void prixMoyen_ShouldCalculateCorrectAverage() {
+        statistiqueImpl.ajouter(new Voiture(10000));
+        statistiqueImpl.ajouter(new Voiture(20000));
+        statistiqueImpl.ajouter(new Voiture(30000));
+
+        Echantillon result = statistiqueImpl.prixMoyen();
+
+        assertThat(result.getNombreDeVoitures()).isEqualTo(3);
+        assertThat(result.getPrixMoyen()).isEqualTo(20000);
+    }
+
+    @Test
+    void prixMoyen_WithEmptyList_ShouldThrowArithmeticException() {
+        assertThrows(ArithmeticException.class, () -> {
+            statistiqueService.prixMoyen();
+        }, "Une division par zéro devrait lever une ArithmeticException");
+    }
+
+
 }
