@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.*;
@@ -39,7 +40,7 @@ class WebTests {
 
     @Test 
     void getStatNull() throws Exception{
-        when(statistique.prixMoyen()).thenThrow(new ArithmeticException());
+        when(statistiqueImpl.prixMoyen()).thenThrow(new ArithmeticException());
 
         mockMvc.perform(get("/statistique"))
                 .andExpect(status().isNotFound());
