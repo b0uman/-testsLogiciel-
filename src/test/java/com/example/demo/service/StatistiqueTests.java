@@ -42,7 +42,7 @@ public class StatistiqueTests {
     @Test
     void prixMoyen_WithEmptyList_ShouldThrowArithmeticException() {
         assertThrows(ArithmeticException.class, () -> {
-            statistiqueService.prixMoyen();
+            statistiqueImpl.prixMoyen();
         }, "Une division par zéro devrait lever une ArithmeticException");
     }
 
