@@ -56,6 +56,7 @@ class WebTests {
             .contentType(MediaType.APPLICATION_JSON)
             .content(jsonVoiture))
             .andExpect(status().isOk());
+    }
     
 
 }
