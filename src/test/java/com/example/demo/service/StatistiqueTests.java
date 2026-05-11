@@ -23,7 +23,7 @@ public class StatistiqueTests {
 
     @Test
     void ajouter_ShouldIncreaseListSize() {
-        Voiture v1 = new Voiture(15000);
+        Voiture v1 = new Voiture("ZKD",15000);
         statistiqueImpl.ajouter(v1);
         Echantillon result = statistiqueImpl.prixMoyen();
         assertThat(result.getNombreDeVoitures()).isEqualTo(1);
