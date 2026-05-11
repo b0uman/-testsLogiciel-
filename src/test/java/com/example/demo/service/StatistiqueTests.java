@@ -4,6 +4,8 @@ import com.example.demo.data.Voiture;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.mockito.Mockito.*;
 
@@ -29,9 +31,9 @@ public class StatistiqueTests {
 
     @Test
     void prixMoyen_ShouldCalculateCorrectAverage() {
-        statistiqueImpl.ajouter(new Voiture(10000));
-        statistiqueImpl.ajouter(new Voiture(20000));
-        statistiqueImpl.ajouter(new Voiture(30000));
+        statistiqueImpl.ajouter(new Voiture("treter",10000));
+        statistiqueImpl.ajouter(new Voiture("JHDPZ",20000));
+        statistiqueImpl.ajouter(new Voiture("DDHZUHD",30000));
 
         Echantillon result = statistiqueImpl.prixMoyen();
 
